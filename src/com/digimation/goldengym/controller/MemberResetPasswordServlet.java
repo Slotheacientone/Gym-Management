@@ -32,7 +32,7 @@ public class MemberResetPasswordServlet extends HttpServlet {
 		if(ValidateUtils.isEmpty(newPassword))
 			isError=true;
 		if(ValidateUtils.isEmpty(confirmPassword))
-			isError=true;
+			isError =true;
 		else if(newPassword!=null && !newPassword.equals(confirmPassword)){
 			isError=true;
 			request.setAttribute("msgcpwd", "confirm password does not match");
