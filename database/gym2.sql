@@ -11,7 +11,7 @@
  Target Server Version : 100413
  File Encoding         : 65001
 
- Date: 06/11/2020 17:04:23
+ Date: 07/11/2020 20:35:26
 */
 
 SET NAMES utf8mb4;
@@ -41,18 +41,19 @@ CREATE TABLE `admin`  (
   `First_name` varchar(15) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `Last_name` varchar(15) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `Email` varchar(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `Gender` char(1) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `Gender` char(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `Mobile` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   `Password` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `Is_active` char(1) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `Is_active` char(1) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT 'y',
   `City_id` int(3) DEFAULT NULL,
   PRIMARY KEY (`Admin_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of admin
 -- ----------------------------
 INSERT INTO `admin` VALUES (1, 'First_name', 'Last_name', 'abc@gmail.com', 'N', '1234567890', 'abc', 'y', 1);
+INSERT INTO `admin` VALUES (2, 'qwe', 'qqwe', 'test3@gmail.com', 'male', NULL, 'cSYjNDMyO2Vxd2U=', 'y', 1);
 
 -- ----------------------------
 -- Table structure for city
