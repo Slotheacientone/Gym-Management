@@ -23,14 +23,14 @@ public class FeedbackDAO {
 		conn = MysqlConnection.getConnection();
 		FeedbackBean feedbackBeanObj = null;
 		try {
-			pstmt = conn.prepareStatement("select * from feedback where date=curdate()");
+			pstmt = conn.prepareStatement("select * from feedback where Date=curdate()");
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
 				feedbackBeanObj = new FeedbackBean();
-				feedbackBeanObj.setMember_id(rs.getInt("member_id"));
-				feedbackBeanObj.setDate(rs.getString("date"));
-				feedbackBeanObj.setFeedback(rs.getString("feedback"));
-				feedbackBeanObj.setFeedback_id(rs.getInt("feedback_id"));
+				feedbackBeanObj.setMember_id(rs.getInt("Member_id"));
+				feedbackBeanObj.setDate(rs.getString("Date"));
+				feedbackBeanObj.setFeedback(rs.getString("Feedback"));
+				feedbackBeanObj.setFeedback_id(rs.getInt("Feedback_id"));
 				listOfFeedbackBeans.add(feedbackBeanObj);
 			}
 		} catch (SQLException e) {
@@ -46,7 +46,7 @@ public class FeedbackDAO {
 		int i = 0;
 		try {
 			pstmt = conn
-					.prepareStatement("INSERT INTO FEEDBACK(MEMBER_ID,FEEDBACK,DATE) VALUES(?,?,CURDATE())");
+					.prepareStatement("INSERT INTO feedback(Member_id,Feedback,Date) VALUES(?,?,CURDATE())");
 			pstmt.setInt(1, feedbackBean.getMember_id());
 			pstmt.setString(2, feedbackBean.getFeedback());
 
@@ -67,15 +67,15 @@ public class FeedbackDAO {
 		conn = MysqlConnection.getConnection();
 		FeedbackBean feedbackBean = null;
 		try {
-			pstmt = conn.prepareStatement("SELECT * FROM FEEDBACK");
+			pstmt = conn.prepareStatement("SELECT * FROM feedback");
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
 				feedbackBean = new FeedbackBean();
 
-				feedbackBean.setMember_id(rs.getInt("member_id"));
-				feedbackBean.setDate(rs.getString("date"));
-				feedbackBean.setFeedback_id(rs.getInt("feedback_id"));
-				feedbackBean.setFeedback(rs.getString("feedback"));
+				feedbackBean.setMember_id(rs.getInt("Member_id"));
+				feedbackBean.setDate(rs.getString("Date"));
+				feedbackBean.setFeedback_id(rs.getInt("Feedback_id"));
+				feedbackBean.setFeedback(rs.getString("Feedback"));
 
 				listOfFeedbackBeans.add(feedbackBean);
 			}
@@ -92,15 +92,15 @@ public class FeedbackDAO {
 		FeedbackBean feedbackBean = null;
 		try {
 			pstmt = conn
-					.prepareStatement("SELECT * FROM FEEDBACK WHERE FEEDBACK_ID=?");
+					.prepareStatement("SELECT * FROM feedback WHERE Feedback_id=?");
 			pstmt.setInt(1, id);
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
 				feedbackBean = new FeedbackBean();
 				feedbackBean.setFeedback_id(id);
-				feedbackBean.setMember_id(rs.getInt("member_id"));
-				feedbackBean.setFeedback(rs.getString("feedback"));
-				feedbackBean.setDate(rs.getString("date"));
+				feedbackBean.setMember_id(rs.getInt("Member_id"));
+				feedbackBean.setFeedback(rs.getString("Feedback"));
+				feedbackBean.setDate(rs.getString("Date"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -113,7 +113,7 @@ public class FeedbackDAO {
 		conn = MysqlConnection.getConnection();
 		try {
 			pstmt = conn
-					.prepareStatement("UPDATE FEEDBACK SET MEMBER_ID=? , FEEDBACK=? , DATE=curdate() WHERE FEEDBACK_ID=?");
+					.prepareStatement("UPDATE feedback SET Member_id=? , Feedback=? , Date=curdate() WHERE Feedback_id=?");
 			pstmt.setInt(1, feedbackBean.getMember_id());
 			pstmt.setString(2, feedbackBean.getFeedback());
 			pstmt.setInt(3, feedbackBean.getFeedback_id());
@@ -133,7 +133,7 @@ public class FeedbackDAO {
 		int i = 0;
 		try {
 			pstmt = conn
-					.prepareStatement("DELETE  FROM FEEDBACK WHERE FEEDBACK_ID=?");
+					.prepareStatement("DELETE  FROM feedback WHERE Feedback_id=?");
 			pstmt.setInt(1, id);
 			i = pstmt.executeUpdate();
 		} catch (SQLException e) {

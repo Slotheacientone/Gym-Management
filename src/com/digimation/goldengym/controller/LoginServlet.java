@@ -53,7 +53,7 @@ public class LoginServlet extends HttpServlet {
 	else if(memberBean!=null)
 	{
 	session.setAttribute("memberBean",memberBean);
-	response.sendRedirect("MemberProgressDisplayServlet");
+	response.sendRedirect("index.jsp");
 	
 	}
 	else if(trainerBean!=null)
