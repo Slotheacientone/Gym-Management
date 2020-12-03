@@ -24,7 +24,7 @@ DROP TABLE IF EXISTS `activity`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `activity` (
   `Activity_id` tinyint NOT NULL AUTO_INCREMENT,
-  `Activity_name` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `Activity` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`Activity_id`) USING BTREE,
   UNIQUE KEY `Acitivy_name_UNIQUE` (`Activity_name`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=DYNAMIC;
