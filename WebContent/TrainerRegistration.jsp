@@ -128,14 +128,6 @@
 				</div>
 			</div>
 			<br />
-			<div class="w3-row">
-				<label class="w3-col m3"> Photo </label>
-				<div class="w3-col m9">
-					<input required   type="file" class="w3-input" name="photo" value="${param.photo}"
-						placeholder="Photo" id="password" />
-						${msgfile}
-				</div>
-			</div>
 			
 			<br /> <br />
 			<div class="w3-row">

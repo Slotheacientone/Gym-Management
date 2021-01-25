@@ -100,7 +100,7 @@ public class TrainerDAO {
 					trainerBeanObj.setCityId(rs.getInt("city_id"));
 					trainerBeanObj.setIsActive(rs.getString("is_active"));
 					trainerBeanObj.setExperiance(rs.getInt("experiance"));
-					trainerBeanObj.setPhoto(rs.getString("photo"));
+					trainerBeanObj.setPhoto("");
 
 				}
 			}
@@ -118,7 +118,7 @@ public class TrainerDAO {
 		try {
 			pstmt = conn
 					.prepareStatement("insert into trainer(first_name,last_name,"
-							+ "password,email,gender,city_id,address,mobile,dob,experiance,on_active,photo) values(?,?,?,?,?,?,?,?,?,?,curdate(),?)");
+							+ "password,email,gender,city_id,address,mobile,dob,experiance,on_active) values(?,?,?,?,?,?,?,?,?,?,curdate(),?)");
 			pstmt.setString(1, trainerBeanObj.getFirstName());
 			pstmt.setString(2, trainerBeanObj.getLastName());
 			pstmt.setString(3,
@@ -130,8 +130,6 @@ public class TrainerDAO {
 			pstmt.setString(8, trainerBeanObj.getMobile());
 			pstmt.setString(9, trainerBeanObj.getDob());
 			pstmt.setInt(10, trainerBeanObj.getExperiance());
-
-			pstmt.setString(11, trainerBeanObj.getPhoto());
 
 			i = pstmt.executeUpdate();
 		} catch (SQLException e) {
