@@ -78,33 +78,7 @@ public class MemberInsertServlet extends HttpServlet {
 					}
 
 				} else {
-					fieldName = item.getFieldName();
-					fileName = item.getName();
-					System.out.println("file name" + fieldName);
-					String path = "F:\\java\\eclipse workspace\\GoldenGym/WebContent/upload/photo";
-					file = new File(path + File.separator + fileName);
-					if (fileName.isEmpty()) {
-						isError = true;
-						request.setAttribute("msgfile",
-								"please select passport size photo");
-					} else {
-						if (context.getMimeType(fileName).equals("image/gif")
-								|| context.getMimeType(fileName).equals(
-										"image/jpeg")
-								|| context.getMimeType(fileName).equals(
-										"image/png"))
-							try {
-								item.write(file);
-								memberBean.setPhoto(fileName);
-							} catch (Exception e) {
-								// TODO Auto-generated catch block
-								e.printStackTrace();
-							}
-						else
-							request.setAttribute("msgfile",
-									"Please upload files that end in types .png,.jpeg only.");
-
-					}
+					memberBean.setPhoto("");
 				}
 			}
 			if (ValidateUtils.isEmpty(firstName))
