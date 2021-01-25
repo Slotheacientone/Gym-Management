@@ -116,6 +116,7 @@ public class TrainerInsertServlet extends HttpServlet {
 				trainerBean.setPhoto("");
 			}
 		}
+		trainerBean.setPhoto("");
 		if(ValidateUtils.isEmpty(firstName))
 	 		isError=true;
 		else

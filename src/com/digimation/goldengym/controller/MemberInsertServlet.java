@@ -80,7 +80,9 @@ public class MemberInsertServlet extends HttpServlet {
 				} else {
 					memberBean.setPhoto("");
 				}
+				
 			}
+			memberBean.setPhoto("");
 			if (ValidateUtils.isEmpty(firstName))
 				isError = true;
 			else
